@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제 2장 : 이웃의 죄</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+KR:wght@400;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game-app is-active" id="gameApp">
+    <header class="topbar" role="banner">
+      <a class="topbar__brand" href="index.html?view=main">진나라에서 살아남기</a>
+      <nav class="topbar__nav" aria-label="주요 메뉴">
+        <a class="topbar__link" href="index.html?view=main">게임시작</a>
+        <a class="topbar__link" href="index.html?page=story">이야기</a>
+        <a class="topbar__link" href="index.html?page=howto">게임방법</a>
+        <a class="topbar__link" href="index.html?page=refs">참조 문헌</a>
+      </nav>
+      <button type="button" class="topbar__sound" id="soundBtn" aria-pressed="true" aria-label="배경음 끄기">樂</button>
+    </header>
+    <div class="page-stage">
+      <section class="page is-active" id="page-chapter2" aria-label="제 2장 이웃의 죄">
+        <div class="page__inner chapter">
+          <h2 class="chapter__title">제 2장 : 이웃의 죄</h2>
+          <div id="chapter2Lead">
+            <figure class="ending__figure">
+              <img src="assets/ch2-scene.png" alt="산골에서 두 남자가 걱정을 나누며 이야기하는 장면" />
+            </figure>
+            <p class="chapter__scene">
+              새로운 법령이 시행되었다.
+              이웃이 죄를 지은 사실을 당신은 알고 있다.
+              고발할 것인가, 침묵할 것인가, 이웃을 숨겨줄 것인가?
+              어떤 선택도 가볍지 않다.
+            </p>
+            <p class="chapter__ask">당신은 어떤 선택을 할 것인가?</p>
+            <div class="choices choices--three">
+              <button class="choice-card" type="button" id="choiceReport">
+                <span class="choice-card__label">a. 이웃을 고발한다.</span>
+                <span class="choice-card__note">법령에 따라 신고한다.</span>
+              </button>
+              <button class="choice-card" type="button" id="choiceIgnore">
+                <span class="choice-card__label">b. 모른척한다.</span>
+                <span class="choice-card__note">이웃의 죄를 알리지 않는다.</span>
+              </button>
+              <button class="choice-card" type="button" id="choiceHide">
+                <span class="choice-card__label">c. 이웃을 숨겨준다.</span>
+                <span class="choice-card__note">이웃과의 관계를 지킨다.</span>
+              </button>
+            </div>
+          </div>
+          <div class="ending" id="chapter2OutcomeB" hidden>
+            <p class="fail-mark">실패</p>
+            <h3 class="ending__name">침묵의 대가</h3>
+            <figure class="ending__figure">
+              <img src="assets/ch2-ending.png?v=2" alt="밤에 포박된 사람들이 관청 앞에 끌려와 있는 장면" />
+            </figure>
+            <p>당신은 끝내 입을 열지 않았다.</p>
+            <p>
+              이웃이 죄를 지었다는 사실을 알고 있었지만, 당신은 그를 고발하지 않았다.
+              오랫동안 함께 살아온 이웃을 관청에 넘기는 일이 마음에 걸렸기 때문이다.
+              당신은 침묵하면 아무 일도 일어나지 않을 것이라 생각했다.
+            </p>
+            <p>그러나 새 법 아래에서 침묵은 더 이상 중립적인 선택이 아니었다.</p>
+            <p class="ending__close">당신의 선택은 여기서 끝난다.</p>
+            <div class="ending__history">
+              <h3>역사 해설</h3>
+              <blockquote class="story-quote">
+                <p>
+                  호적제도를 개혁하고, 백성들을 십오(什伍)로 편성하여 서로 고발하고 처벌토록 하는 연좌제를 시행하였다.
+                  또한 간사한 자를 고발하는 자에게는 적의 머리를 벤 것과 같은 상을 주게 하고, 고발하지 않은 자에게는 적에게 항복한 사람과 같은 벌을 내리게 하였다.
+                </p>
+              </blockquote>
+              <p>
+                이러한 제도는 국가가 개별 범죄자를 처벌하는 데 그치지 않고, 공동체 구성원끼리 서로를 감시하도록 함으로써 법 집행을 강화하려는 것이었다.
+                그 결과 개인은 이웃과의 관계를 지킬 것인지, 법령이 요구하는 의무를 따를 것인지 선택해야 하는 상황에 놓일 수 있었다.
+              </p>
+            </div>
+            <button class="cta chapter__restart replay-btn" type="button" data-ending="ch2-b">다시 플레이</button>
+          </div>
+          <div class="ending" id="chapter2OutcomeC" hidden>
+            <p class="fail-mark">실패</p>
+            <h3 class="ending__name">의리의 대가</h3>
+            <figure class="ending__figure">
+              <img src="assets/ch2-ending.png?v=2" alt="밤에 포박된 사람들이 관청 앞에 끌려와 있는 장면" />
+            </figure>
+            <p>당신은 이웃을 외면할 수 없었다.</p>
+            <p>
+              관청의 눈을 피해 이웃을 숨겨주기로 한 당신.
+              그가 붙잡히면 어떤 처벌을 받게 될지 알면서도, 당신은 그를 외면하지 못했다.
+            </p>
+            <p>
+              하지만 법은 당신의 사정을 고려하지 않았다.
+              범죄자를 숨겨주는 행위 역시 중대한 위반으로 규정되어 있었다.
+            </p>
+            <p class="ending__close">당신은 법령이 정한 처벌을 피할 수 없었다. 당신의 이야기는 여기서 끝난다.</p>
+            <div class="ending__history">
+              <h3>역사 해설</h3>
+              <blockquote class="story-quote">
+                <p>
+                  호적제도를 개혁하고, 백성들을 십오(什伍)로 편성하여 서로 고발하고 처벌토록 하는 연좌제를 시행하였다.
+                  또한 간사한 자를 고발하는 자에게는 적의 머리를 벤 것과 같은 상을 주게 하고, 고발하지 않은 자에게는 적에게 항복한 사람과 같은 벌을 내리게 하였다.
+                  또한 범죄자를 숨긴 자는 적에 항복한 자와 똑같이 처벌한다.
+                </p>
+              </blockquote>
+              <p>
+                이러한 제도는 국가가 개별 범죄자를 처벌하는 데 그치지 않고, 공동체 구성원끼리 서로를 감시하도록 함으로써 법 집행을 강화하려는 것이었다.
+                그 결과 개인은 이웃과의 관계를 지킬 것인지, 법령이 요구하는 의무를 따를 것인지 선택해야 하는 상황에 놓일 수 있었다.
+              </p>
+            </div>
+            <button class="cta chapter__restart replay-btn" type="button" data-ending="ch2-c">다시 플레이</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div class="back-bar">
+      <button type="button" class="back-btn" id="backBtn">이전</button>
+    </div>
+  </div>
+  <script src="common.js"></script>
+  <script src="chapter2.js"></script>
+</body>
+</html>

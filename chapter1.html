@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제 1장 : 남문 앞의 나무</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+KR:wght@400;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game-app is-active" id="gameApp">
+    <header class="topbar" role="banner">
+      <a class="topbar__brand" href="index.html?view=main">진나라에서 살아남기</a>
+      <nav class="topbar__nav" aria-label="주요 메뉴">
+        <a class="topbar__link" href="index.html?view=main">게임시작</a>
+        <a class="topbar__link" href="index.html?page=story">이야기</a>
+        <a class="topbar__link" href="index.html?page=howto">게임방법</a>
+        <a class="topbar__link" href="index.html?page=refs">참조 문헌</a>
+      </nav>
+      <button type="button" class="topbar__sound" id="soundBtn" aria-pressed="true" aria-label="배경음 끄기">樂</button>
+    </header>
+    <div class="page-stage">
+      <section class="page is-active" id="page-chapter1" aria-label="제 1장 남문 앞의 나무">
+        <div class="page__inner chapter">
+          <h2 class="chapter__title">제 1장 : 남문 앞의 나무</h2>
+          <div id="chapter1Lead">
+            <figure class="ending__figure">
+              <img src="assets/ch1-scene.png?v=3" alt="성문 앞 광장에서 관리가 나무 기둥 앞의 사람들 앞에서 명을 내리는 장면" />
+            </figure>
+            <p class="chapter__scene">
+              도성 남문 앞에 세 장(丈) 높이의 나무가 서 있다.
+              방에는 북문으로 옮기는 사람에게 10금을 준다고 적혀 있다.
+              사람들은 서로 눈치만 볼 뿐 움직이지 않는다.
+            </p>
+          </div>
+          <div id="chapter1Choices">
+            <p class="chapter__ask">당신은 어떻게 할 것인가?</p>
+            <div class="choices">
+              <button class="choice-card" type="button" id="choiceMove">
+                <span class="choice-card__label">a. 지금 나무를 옮긴다.</span>
+                <span class="choice-card__note">10금의 약속을 믿는다.</span>
+              </button>
+              <button class="choice-card" type="button" id="choiceWatch">
+                <span class="choice-card__label">b. 일단 지켜본다.</span>
+                <span class="choice-card__note">정부의 약속이 진짜인지 살핀다.</span>
+              </button>
+            </div>
+          </div>
+          <div id="chapter1Outcome" hidden>
+            <p class="fail-mark">실패</p>
+            <p class="chapter__scene">
+              당신은 관리의 명령을 믿고 나무를 북문으로 옮긴다.
+              관리들은 약속한 10금을 지급한다.
+              당신은 보상을 얻었지만, 정부가 백성의 신뢰를 얻으려는 의도를 충분히 파악하지 못한 채 일상으로 돌아간다.
+            </p>
+            <button class="cta chapter__restart replay-btn" type="button">다시 플레이</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div class="back-bar">
+      <button type="button" class="back-btn" id="backBtn">이전</button>
+    </div>
+  </div>
+  <script src="common.js"></script>
+  <script src="chapter1.js"></script>
+</body>
+</html>

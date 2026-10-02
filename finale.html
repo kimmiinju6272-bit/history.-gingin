@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마지막 이야기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+KR:wght@400;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game-app is-active" id="gameApp">
+    <header class="topbar" role="banner">
+      <a class="topbar__brand" href="index.html?view=main">진나라에서 살아남기</a>
+      <nav class="topbar__nav" aria-label="주요 메뉴">
+        <a class="topbar__link" href="index.html?view=main">게임시작</a>
+        <a class="topbar__link" href="index.html?page=story">이야기</a>
+        <a class="topbar__link" href="index.html?page=howto">게임방법</a>
+        <a class="topbar__link" href="index.html?page=refs">참조 문헌</a>
+      </nav>
+      <button type="button" class="topbar__sound" id="soundBtn" aria-pressed="true" aria-label="배경음 끄기">樂</button>
+    </header>
+    <div class="page-stage">
+      <section class="page is-active" id="page-finale" aria-label="마지막 이야기">
+        <div class="page__inner chapter">
+          <p class="finale__mark">THE END</p>
+          <h2 class="chapter__title">역사 속 당신의 선택</h2>
+          <figure class="ending__figure finale__figure">
+            <img src="assets/finale-portrait.png" alt="금색 용포를 입은 진나라 군주의 초상" />
+          </figure>
+          <div class="prose finale__body">
+            <p class="finale__question"><strong>강한 나라는, 누구를 위한 나라일까?</strong></p>
+            <p>
+              당신은 진나라의 농민으로 살아가며 여러 선택을 내렸습니다.
+              그 선택들은 때로 보상을 가져왔고, 때로는 당신과 가족에게 감당하기 어려운 결과를 안겼습니다.
+            </p>
+            <p>
+              상앙의 변법은 법과 상벌을 통해 사회를 정비하고 부국강병을 추구했습니다.
+              <strong>그러나 국가가 정한 기준에 따라 보상과 처벌이 이루어질 때, 그 기준에 부합하지 못하는 사람들의 삶은 어떻게 되었을까요?</strong>
+            </p>
+            <p><strong>국가의 부강함은 그 안에 사는 사람들의 삶이 나아졌다는 뜻과 언제나 같을까요?</strong></p>
+            <p>
+              <strong>우리는 제도의 목적과 성과를 살펴보는 동시에, 그 제도 아래에서 살아간 사람들의 경험과 부담까지 함께 살펴보아야 합니다.</strong>
+              오늘 당신이 내린 선택을 돌아보며, 상앙 변법이 진나라에 가져온 변화와 그 대가를 생각해 볼 수 있길 바랍니다.
+            </p>
+            <p class="finale__done">플레이를 마쳤습니다.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="back-bar">
+      <button type="button" class="back-btn" id="backBtn">이전</button>
+    </div>
+  </div>
+  <script src="common.js"></script>
+  <script src="finale.js"></script>
+</body>
+</html>

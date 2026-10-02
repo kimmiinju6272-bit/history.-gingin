@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>진나라에서 살아남기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+KR:wght@400;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+  <main class="intro screen" id="titleScreen" aria-label="진나라에서 살아남기 소개">
+    <div class="intro__bg" aria-hidden="true"></div>
+    <div class="intro__texture" aria-hidden="true"></div>
+
+    <div class="lanterns" aria-hidden="true">
+      <span class="lantern"></span>
+      <span class="lantern"></span>
+      <span class="lantern"></span>
+    </div>
+
+    <canvas class="embers" id="embers" aria-hidden="true"></canvas>
+
+    <div class="seal-mark" aria-hidden="true"><span>法家</span></div>
+
+    <div class="mountains" aria-hidden="true">
+      <svg viewBox="0 0 1440 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#1f1410" d="M0 280 L180 190 L320 250 L480 120 L640 230 L820 90 L980 210 L1140 140 L1300 220 L1440 160 L1440 420 L0 420 Z" opacity="0.85"/>
+        <path fill="#120d0a" d="M0 320 L220 240 L400 300 L560 200 L760 290 L960 180 L1160 270 L1320 230 L1440 260 L1440 420 L0 420 Z"/>
+        <path fill="#0a0705" d="M0 360 L160 320 L340 350 L520 300 L740 355 L960 295 L1180 345 L1440 310 L1440 420 L0 420 Z"/>
+      </svg>
+    </div>
+    <div class="mist" aria-hidden="true"></div>
+
+    <div class="content">
+      <p class="era">战国 · 秦</p>
+      <h1 class="brand">진나라에서<br /><em>살아남기</em></h1>
+      <div class="divider" aria-hidden="true"><span>印</span></div>
+      <p class="tagline">
+        상앙의 법가 아래, 한 명의 백성으로 진나라를 살아내라.<br />
+        선택은 명운이 된다.
+      </p>
+      <button class="cta" type="button" id="startBtn">여정을 시작하다</button>
+    </div>
+  </main>
+
+  <div class="game-app" id="gameApp" hidden>
+    <header class="topbar" role="banner">
+      <button type="button" class="topbar__brand" id="brandHome" data-page="start">진나라에서 살아남기</button>
+      <nav class="topbar__nav" aria-label="주요 메뉴">
+        <button type="button" class="topbar__link is-active" data-page="start">게임시작</button>
+        <button type="button" class="topbar__link" data-page="story">이야기</button>
+        <button type="button" class="topbar__link" data-page="howto">게임방법</button>
+        <button type="button" class="topbar__link" data-page="refs">참조 문헌</button>
+      </nav>
+      <button type="button" class="topbar__sound" id="soundBtn" aria-pressed="true" aria-label="배경음 끄기">樂</button>
+    </header>
+
+    <div class="page-stage">
+      <section class="page page--start is-active" id="page-start" aria-label="게임시작">
+        <div class="start-hero">
+          <img
+            class="start-hero__img"
+            src="assets/qin-gate.png"
+            alt="진나라 성문 앞에 선 여행자와 모여든 사람들"
+          />
+          <div class="start-hero__veil" aria-hidden="true"></div>
+          <div class="start-hero__copy">
+            <h2 class="start-hero__title">진나라에서 살아남기</h2>
+            <p>
+              상앙은 진나라의 부국강병을 위해 새로운 법을 만들었습니다.
+              이 법은 백성들의 삶을 바꾸고, 나라의 질서를 새롭게 세우려 했습니다.
+            </p>
+            <p>
+              당신은 진나라 도성 근처에 사는 평범한 농민입니다.
+              지금부터 당신의 선택에 따라, 전혀 다른 결말이 펼쳐집니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="start-body">
+          <button class="cta" type="button" id="playBtn">게임 시작하기</button>
+
+          <section class="story-board" aria-label="당신의 이야기">
+            <p class="story-board__head">당신의 이야기</p>
+            <div class="story-board__list">
+              <div class="story-lamp is-fail" data-ending="ch2-b">
+                <span class="story-lamp__light" aria-hidden="true"></span>
+                <span class="story-lamp__name">A</span>
+              </div>
+              <div class="story-lamp is-fail" data-ending="ch2-c">
+                <span class="story-lamp__light" aria-hidden="true"></span>
+                <span class="story-lamp__name">B</span>
+              </div>
+              <div class="story-lamp is-success" data-ending="ch3-a">
+                <span class="story-lamp__light" aria-hidden="true"></span>
+                <span class="story-lamp__name">C</span>
+              </div>
+              <div class="story-lamp is-success" data-ending="ch3-b">
+                <span class="story-lamp__light" aria-hidden="true"></span>
+                <span class="story-lamp__name">D</span>
+              </div>
+              <div class="story-lamp is-fail" data-ending="ch3-c">
+                <span class="story-lamp__light" aria-hidden="true"></span>
+                <span class="story-lamp__name">E</span>
+              </div>
+            </div>
+          </section>
+          <p class="start-note">
+            본 게임은 역사 체험형 픽션입니다. 인물, 사건, 제도를 바탕으로 하되 극적 구성을 위해 각색된 부분이 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="page" id="page-story" aria-label="이야기" hidden>
+        <div class="page__inner">
+          <p class="page__eyebrow">史</p>
+          <h2 class="page__title">이야기</h2>
+          <div class="page__title-rule" aria-hidden="true"><span>印</span></div>
+          <div class="prose">
+            <h3>변법 이전</h3>
+            <p>
+              상앙의 변법이 시행되기 이전까지만 해도
+              진나라는 전국 가운데 가장 낙후된 약소국이며 오랑캐의 풍습을 가진
+              변방국으로 무시되고 있었습니다.
+            </p>
+            <h3>천하통일의 초석</h3>
+            <p>
+              그러나 상앙의 변법 시행은 진나라를 일약 신흥 강대국의
+              반열에 올려놓음으로써 진시황이 천하통일의 대업을 이루는 데 초석을 놓았습니다.
+            </p>
+            <p>
+              그는 특히 법을 중시하여 법가의 법치사상에 대한 이론적 틀을
+              체계적으로 정립하는 데 기여한 인물이었습니다.
+            </p>
+            <h3>백성의 자리</h3>
+            <p>
+              그러나 새로운 법은 한순간에 삶을 바꿉니다.
+            </p>
+            <p>
+              이웃을 고발해야 할 수도 있고,
+              작은 위반이 큰 형벌로 이어질 수도 있습니다.
+            </p>
+            <p>
+              본 게임 속에서는 도성 근처의 평범한 농민인 당신이
+              밭을 갈고 세금을 바치며, 날마다 선택의 벼랑 끝에 섭니다.
+              그래서, 당신은 어떤 선택을 하시겠습니까?
+            </p>
+            <blockquote class="story-quote">
+              <p>
+                형벌이 엄하고 포상이 가벼우면 군주가 백성을 사랑하는 것처럼 보이므로
+                백성은 목숨을 바쳐 충성한다.
+              </p>
+              <p>
+                반대로 포상이 크고 형벌이 가벼우면
+                (군주가) 백성을 사랑하지 않는 것처럼 보이므로 백성은 목숨을 바쳐 충성하지 않는다.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-howto" aria-label="게임방법" hidden>
+        <div class="page__inner">
+          <p class="page__eyebrow">規</p>
+          <h2 class="page__title">게임방법</h2>
+          <div class="page__title-rule" aria-hidden="true"><span>印</span></div>
+          <div class="prose">
+            <h3>기본 진행</h3>
+            <p>
+              이 게임은 선택형 시뮬레이션입니다. 장면마다 제시되는 선택지 중 하나를 고르면
+              이야기가 갈라지고, 당신의 처지·평판·운명이 달라집니다.
+            </p>
+            <ul>
+              <li>장면의 서술과 선택지를 읽고, 신중히 하나를 고릅니다.</li>
+              <li>같은 상황이라도 선택에 따라 전혀 다른 결말에 도달할 수 있습니다.</li>
+            </ul>
+            <h3>선택의 무게</h3>
+            <p>
+              이웃과의 관계, 관리의 시선, 가정과 생존이 모두 얽혀있습니다. “옳은 선택”보다
+              “당신이 감당할 선택”을 고민해 보세요.
+            </p>
+            <h3>다시 플레이</h3>
+            <p>
+              한 번의 플레이로 모든 결말을 볼 필요는 없습니다.
+              다른 길을 선택하면, 같은 시대라도 다른 진나라가 열립니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-refs" aria-label="참조 문헌" hidden>
+        <div class="page__inner">
+          <p class="page__eyebrow">典</p>
+          <h2 class="page__title">참조 문헌</h2>
+          <div class="page__title-rule" aria-hidden="true"><span>印</span></div>
+          <div class="ref-list">
+            <article class="ref-item">
+              <h3 class="ref-item__title">이종성, 「상앙의 변법과 법치사상의 특성: 규범 3단계설의 적용을 중심으로」</h3>
+              <p class="ref-item__meta">2018, 『철학연구』 제147집, pp. 333–357.</p>
+            </article>
+            <article class="ref-item">
+              <h3 class="ref-item__title">『사기(史記)』 권68, 상군열전(商君 列傳)</h3>
+              <p class="ref-item__meta">&lt;상앙(商鞅) 변법&gt;</p>
+            </article>
+            <article class="ref-item">
+              <h3 class="ref-item__title">이미지 및 배경음악</h3>
+              <p class="ref-item__meta">본 게임에 사용된 모든 이미지와 배경음악은 AI(제미나이)를 활용하여 제작된 컨텐츠임을 밝힙니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="back-bar">
+      <button type="button" class="back-btn" id="backBtn">이전</button>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script>
+    const titleScreen = document.getElementById("titleScreen");
+    const gameApp = document.getElementById("gameApp");
+    const pageIds = ["start", "story", "howto", "refs"];
+
+    const backStack = [];
+    let applyingHistory = false;
+
+    function currentPage() {
+      return pageIds.find((id) => document.getElementById(`page-${id}`).classList.contains("is-active")) || null;
+    }
+
+    function capture() {
+      if (!gameApp.classList.contains("is-active")) return { title: true };
+      return { page: currentPage() };
+    }
+
+    function activatePage(pageId) {
+      pageIds.forEach((id) => {
+        const page = document.getElementById(`page-${id}`);
+        if (!page) return;
+        const active = id === pageId;
+        page.classList.toggle("is-active", active);
+        page.hidden = !active;
+      });
+
+      document.querySelectorAll(".topbar__link").forEach((btn) => {
+        btn.classList.toggle("is-active", btn.dataset.page === pageId);
+      });
+
+      const stage = document.querySelector(".page-stage");
+      if (stage) stage.scrollTop = 0;
+    }
+
+    function showPage(pageId) {
+      if (!applyingHistory) backStack.push(capture());
+      activatePage(pageId);
+      if (window.syncBgm) window.syncBgm(false);
+    }
+
+    function resetProgress() {
+      localStorage.removeItem("qin-seen-endings");
+      if (window.Qin && window.Qin.renderSeenEndings) window.Qin.renderSeenEndings();
+    }
+
+    function showTitle() {
+      resetProgress();
+      titleScreen.classList.remove("is-hidden");
+      gameApp.classList.remove("is-active");
+      gameApp.hidden = true;
+    }
+
+    function goBack() {
+      if (gameApp.classList.contains("is-active") && currentPage() === "start") {
+        backStack.length = 0;
+        showTitle();
+        if (location.search) history.replaceState(null, "", "index.html");
+        if (window.syncBgm) window.syncBgm(false);
+        return;
+      }
+      const prev = backStack.pop();
+      applyingHistory = true;
+      if (!prev || prev.title) {
+        showTitle();
+        if (location.search) history.replaceState(null, "", "index.html");
+      } else {
+        activatePage(prev.page);
+      }
+      applyingHistory = false;
+      if (window.syncBgm) window.syncBgm(false);
+    }
+
+    function openMain(pageId) {
+      backStack.length = 0;
+      backStack.push({ title: true });
+      titleScreen.classList.add("is-hidden");
+      gameApp.hidden = false;
+      gameApp.classList.add("is-active");
+      applyingHistory = true;
+      activatePage(pageId || "start");
+      applyingHistory = false;
+      if (window.playBgm) window.playBgm();
+    }
+
+    document.getElementById("backBtn").addEventListener("click", goBack);
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+      openMain("start");
+    });
+
+    document.querySelectorAll("[data-page]").forEach((btn) => {
+      btn.addEventListener("click", () => showPage(btn.dataset.page));
+    });
+
+    document.getElementById("playBtn").addEventListener("click", () => {
+      location.href = "chapter1.html";
+    });
+
+    const params = new URLSearchParams(location.search);
+    const queryPage = params.get("page");
+    if (params.get("view") === "main" || (queryPage && pageIds.includes(queryPage))) {
+      openMain(pageIds.includes(queryPage) ? queryPage : "start");
+    } else {
+      resetProgress();
+    }
+
+    (function initEntrance() {
+      const intro = document.querySelector(".intro");
+      if (intro) intro.classList.add("intro--revealed");
+    })();
+
+    (function initEmbers() {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) return;
+
+      const canvas = document.getElementById("embers");
+      const ctx = canvas.getContext("2d");
+      const sparks = [];
+      let width = 0;
+      let height = 0;
+      let lastSpawn = 0;
+      let raf = 0;
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function spawnSpark(fromBottom) {
+        const warm = Math.random();
+        const burst = Math.random() > 0.82;
+        sparks.push({
+          x: Math.random() * width,
+          y: fromBottom ? height + 6 : height * (0.35 + Math.random() * 0.65),
+          vx: (Math.random() - 0.5) * (burst ? 1.1 : 0.55),
+          vy: -(0.35 + Math.random() * (burst ? 1.4 : 0.85)),
+          life: 0,
+          maxLife: 70 + Math.random() * 160,
+          size: 0.5 + Math.random() * (burst ? 2.4 : 1.8),
+          flicker: Math.random() * Math.PI * 2,
+          tone: warm > 0.7 ? "gold" : warm > 0.35 ? "amber" : "ember",
+        });
+      }
+
+      function colorFor(spark, alpha) {
+        if (spark.tone === "gold") return `rgba(255, 214, 120, ${alpha})`;
+        if (spark.tone === "amber") return `rgba(255, 160, 64, ${alpha})`;
+        return `rgba(255, 90, 40, ${alpha})`;
+      }
+
+      function tick(now) {
+        ctx.clearRect(0, 0, width, height);
+
+        if (now - lastSpawn > 16) {
+          const count = 6 + Math.floor(Math.random() * 5);
+          for (let n = 0; n < count; n++) {
+            spawnSpark(true);
+            if (Math.random() > 0.35) spawnSpark(false);
+          }
+          lastSpawn = now;
+        }
+
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          const s = sparks[i];
+          s.life += 1;
+          s.flicker += 0.2;
+          s.x += s.vx + Math.sin(s.flicker) * 0.28;
+          s.y += s.vy;
+          s.vy -= 0.0035;
+          s.vx *= 0.994;
+
+          const progress = s.life / s.maxLife;
+          if (progress >= 1 || s.y < -12) {
+            sparks.splice(i, 1);
+            continue;
+          }
+
+          const fade =
+            progress < 0.08
+              ? progress / 0.08
+              : progress > 0.65
+                ? 1 - (progress - 0.65) / 0.35
+                : 1;
+          const pulse = 0.55 + 0.45 * Math.sin(s.flicker * 1.9);
+          const alpha = Math.max(0, fade * pulse * 0.7);
+          const r = s.size * (1 - progress * 0.3);
+
+          ctx.beginPath();
+          ctx.fillStyle = colorFor(s, alpha);
+          ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (s.size > 1.1) {
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 230, 170, ${alpha * 0.4})`;
+            ctx.arc(s.x, s.y, r * 0.45, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        while (sparks.length > 420) sparks.shift();
+        raf = requestAnimationFrame(tick);
+      }
+
+      resize();
+      for (let i = 0; i < 120; i++) spawnSpark(false);
+      window.addEventListener("resize", resize);
+      raf = requestAnimationFrame(tick);
+
+      window.addEventListener("beforeunload", () => cancelAnimationFrame(raf));
+    })();
+  </script>
+</body>
+</html>
